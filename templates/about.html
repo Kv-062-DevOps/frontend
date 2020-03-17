@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<p>Create structure for department:<br />
+ There are 3 types of employee: developer, designer and manager<br />
+ Each employee has: first name, second name, salary, experiance (years)<br />
+ Each designer, developer or manager can have higher managers<br />
+ Each designer has effectivness coefficient(0-1)<br />
+ Each manager has team of developers and designers.<br />
+ Department should have list of managers(which have their own teams)<br />
+ Department should be able to give salary (for each employee message: &quot;@firstName@ @secondName@: got salary: @salaryValue@&quot;)<br />
+ Each employee gets the salary, defined in field Salary. If experiance of employee is > 2 years, he gets bonus + 200$, if experiance is > 5 years, he gets salary*1.2 + bonus 500<br />
+ Each designer gets the salary = salary*effCoeff<br />
+ Each manager gets salary +<br />
+ 200$ if his team has >5 members<br />
+ 300$ if his team has >10 members<br />
+ salary*1.1 if more than half of team members are developers.<br />
+ Redefine string representation for employee as follows: &quot;@firstName@ @secondName@, manager:@manager secondName@, experiance:@experiance@&quot;<br />
+</p>
+ 
+{% endblock content %}
