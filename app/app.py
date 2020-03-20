@@ -5,13 +5,16 @@ import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
+# url for get requests
+# url_get = 'https://jsonplaceholder.typicode.com/todos/' 
+# url for post request
+url_post = 'http://localhost:5000'
 
 @app.route("/")
 @app.route("/home")
 def home():
     # employees=[]
     # # Change this url for get request
-    # url_get = 'https://jsonplaceholder.typicode.com/todos/' 
     # response = requests.get(url_get)
     # obj = json.loads(response.text)
     # for i in obj:
@@ -49,7 +52,6 @@ def designer():
 @app.route("/developer", methods=['GET', 'POST'])
 def developer():
     form = RegistrationForm()
-    url_post = 'http://localhost:5000'
     if form.validate_on_submit():
         first_name = request.form.get('first_name')
         second_name = request.form.get('second_name')
