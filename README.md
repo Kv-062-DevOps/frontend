@@ -1,4 +1,4 @@
-+++++++ Start application on local machine ++++++++
+Start application on local machine 
 1. git clone git@github.com:Kv-062-DevOps/frontend.git
 2. cd frontend/app/
 3. virtualenv flask
@@ -7,7 +7,7 @@
 6. python3 app.py
 7. Follow link http://localhost:5000/
 
-+++++++ Run application with docker ++++++++++++++
+Run application with docker 
 1. git clone git@github.com:Kv-062-DevOps/frontend.git
 2. cd frontend/
 3. docker build -t front .
