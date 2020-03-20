@@ -34,7 +34,7 @@ def about():
 def manager():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.firstname.data}!', 'success')
+        flash(f'Account created for {form.first_name.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('manager.html', title='manager', form=form)
 
@@ -42,25 +42,24 @@ def manager():
 def designer():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.firstname.data}!', 'success')
+        flash(f'Account created for {form.first_name.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('designer.html', title='designer', form=form)
 
 @app.route("/developer", methods=['GET', 'POST'])
 def developer():
     form = RegistrationForm()
-    # # Change this url for post request
     url_post = 'http://localhost:5000'
     if form.validate_on_submit():
-        firstname = request.form.get('firstname')
-        lastname = request.form.get('lastname')
-        position = request.form.get('position')
-        salary = request.form.get('salary')
-        experiance = request.form.get('experiance')
-        data = {"firstname":firstname, "lastname":lastname, "position":position, "salary":salary, "experiance":experiance}
+        first_name = request.form.get('first_name')
+        second_name = request.form.get('second_name')
+        types = request.form.get('types')
+        default_salary = request.form.get('default_salary')
+        experience = request.form.get('experience')
+        data = {"first_name":first_name, "second_name":second_name, "types":types, "default_salary":default_salary, "experience":experience}
         app_json = json.dumps(data, sort_keys=True)
         r = requests.post(url = url_post, data = app_json)
-        flash(f'Account created for {form.firstname.data}!', 'success')
+        flash(f'Account created for {form.first_name.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('developer.html', title='developer', form=form)
 

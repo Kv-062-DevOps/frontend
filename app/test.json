@@ -1,34 +1,25 @@
 [   {
-    "firstname":"Captain",
-    "lastname":"America",
-    "position":"manager",
-    "experiance":5,
-    "salary":"4000",
-    "coeff":"coeff"
+    "first_name":"Ivan",
+    "second_name":"Drago",
+    "types":"manager",
+    "experience":"8",
+    "default_salary":"3000"
  
 },
  {
-    "firstname":"Iron",
-    "lastname":"Man",
-    "position":"developer",
-    "experiance":"3",
-    "salary":"3000",
-    "coeff":"coeff"
- 
-},
-{
-    "firstname":"Thor",
-    "position":"designer",
-    "experiance":"4",
-    "salary":"2700",
-    "coeff":"coeff"
+    "first_name":"Ivan",
+    "second_name":"Drogo",
+    "types":"developer",
+    "experience":"10",
+    "default_salary":"2000"
  
 },
  {
-    "firstname":"Spider",
-    "lastname":"Man",
-    "position":"designer",
-    "experiance":"2",
-    "salary":"2300"
+    "first_name":"Ivan",
+    "second_name":"Drogo",
+    "types":"designer",
+    "experience":"10",
+    "default_salary":"2500"
+ 
 }
 ]

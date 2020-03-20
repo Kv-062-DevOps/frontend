@@ -4,14 +4,14 @@ from wtforms.validators import DataRequired, Length, EqualTo
 
 
 class RegistrationForm(FlaskForm):
-    firstname = StringField('First name',
+    first_name = StringField('First name',
                            validators=[DataRequired(), Length(min=2, max=20)])
-    lastname = StringField('Last name',
+    second_name = StringField('Last name',
                            validators=[DataRequired(), Length(min=2, max=20)])
-    position = StringField('Position',
+    types = StringField('Position',
                            validators=[DataRequired(), Length(min=2, max=20)])
-    salary = DecimalField('Salary',
+    default_salary = DecimalField('Salary',
                            validators=[DataRequired()])
-    experiance = DecimalField('Experiance',
+    experience = DecimalField('Experience',
                            validators=[DataRequired()])
     submit = SubmitField('Save')
