@@ -6,51 +6,38 @@ import json
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 # url for get requests
-# url_get = 'https://jsonplaceholder.typicode.com/todos/' 
+url_get = 'http://localhost:8081'
 # url for post request
-url_post = 'http://localhost:5000'
+url_post = 'http://localhost:8084'
 
 @app.route("/")
+def _():
+    return render_template('home.html')
 @app.route("/home")
 def home():
     # employees=[]
-    # # Change this url for get request
     # response = requests.get(url_get)
     # obj = json.loads(response.text)
-    # for i in obj:
-    #     employees.append(i)
-    # return render_template('home.html', employees=employees)
-    # # This is test section
+    # if (type(obj) == dict):
+    #     employees.append(obj)
+    #     return render_template('home.html', employees=employees)
+    # else:
+    #     return render_template('home.html', employees=obj)
+    # This is test section
     with open('test.json', 'r') as myfile:
-        employees=[]
-        data=myfile.read()
-        obj = json.loads(data)
-        for i in obj:
-            employees.append(i)
-        return render_template('home.html', employees=employees)
+       employees=[]
+       data=myfile.read()
+       obj = json.loads(data)
+       for i in obj:
+           employees.append(i)
+       return render_template('home.html', employees=employees)
 
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
 
-@app.route("/manager", methods=['GET', 'POST'])
-def manager():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        flash(f'Account created for {form.first_name.data}!', 'success')
-        return redirect(url_for('home'))
-    return render_template('manager.html', title='manager', form=form)
-
-@app.route("/designer", methods=['GET', 'POST'])
-def designer():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        flash(f'Account created for {form.first_name.data}!', 'success')
-        return redirect(url_for('home'))
-    return render_template('designer.html', title='designer', form=form)
-
-@app.route("/developer", methods=['GET', 'POST'])
-def developer():
+@app.route("/employee", methods=['GET', 'POST'])
+def employee():
     form = RegistrationForm()
     if form.validate_on_submit():
         first_name = request.form.get('first_name')
@@ -63,7 +50,7 @@ def developer():
         r = requests.post(url = url_post, data = app_json)
         flash(f'Account created for {form.first_name.data}!', 'success')
         return redirect(url_for('home'))
-    return render_template('developer.html', title='developer', form=form)
+    return render_template('employee.html', title='employee', form=form)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
