@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 # url for get requests
 url_get = 'http://localhost:8081'
 # url for post request
-url_post = 'http://localhost:8084'
+url_post = 'http://localhost:8082'
 
 @app.route("/")
 def _():
