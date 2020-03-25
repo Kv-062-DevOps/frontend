@@ -15,22 +15,14 @@ def _():
     return render_template('home.html')
 @app.route("/home")
 def home():
-    # employees=[]
-    # response = requests.get(url_get)
-    # obj = json.loads(response.text)
-    # if (type(obj) == dict):
-    #     employees.append(obj)
-    #     return render_template('home.html', employees=employees)
-    # else:
-    #     return render_template('home.html', employees=obj)
-    # This is test section
-    with open('test.json', 'r') as myfile:
-       employees=[]
-       data=myfile.read()
-       obj = json.loads(data)
-       for i in obj:
-           employees.append(i)
-       return render_template('home.html', employees=employees)
+    employees=[]
+    response = requests.get(url_get)
+    obj = json.loads(response.text)
+    if (type(obj) == dict):
+        employees.append(obj)
+        return render_template('home.html', employees=employees)
+    else:
+        return render_template('home.html', employees=obj)
 
 @app.route("/about")
 def about():
