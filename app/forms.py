@@ -6,7 +6,7 @@ class RegistrationForm(FlaskForm):
     first_name = StringField('First name',
                            validators=[DataRequired(), Length(min=2, max=20)])
     second_name = StringField('Last name',
-                           validators=[DataRequired(), Length(min=2, max=20), ])
+                           validators=[DataRequired(), Length(min=2, max=20)])
     types = SelectField('Position',
                            choices=[('manager', 'manager'), ('designer', 'designer'), ('developer', 'developer')])
     default_salary = DecimalField('Salary',
