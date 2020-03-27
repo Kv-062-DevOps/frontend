@@ -11,5 +11,9 @@ Run application with docker
 1. git clone git@github.com:Kv-062-DevOps/frontend.git
 2. cd frontend/
 3. docker build -t front .
-4. docker run -p 8080:8080 -d front:latest
+4. docker run -p 8080:8080 -d -e URL_GET="get_url" -e POST_URL="post_url" front:latest
 5. Follow link http://localhost:8080/
+
+Run application with docker form dockerhub
+1. docker run -p 8080:8080 -d -e URL_GET="get_url" -e POST_URL="post_url" dimeder13/frontend:latest
+
