@@ -15,5 +15,5 @@ Run application with docker
 5. Follow link http://localhost:8080/
 
 Run application with docker form dockerhub
-1. docker run -p 8080:8080 -d -e URL_GET="get_url" -e POST_URL="post_url" dimeder13/frontend:latest
+1. docker run -p 8080:8080 -d -e URL_GET="get_url" -e URL_POST="post_url" dimeder13/frontend:latest
 
