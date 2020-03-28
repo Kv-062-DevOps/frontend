@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front
+  labels:
+    app: flask
+    component: front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+      component: front
+  template:
+    metadata:
+      name: front
+      labels:
+        app: flask
+        component: front
+    spec:
+      containers:
+      - image: dimeder13/frontend:v1
+        envFrom:
+        - configMapRef:
+            name: env-front-config
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        name: front

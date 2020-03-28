@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: post
+  labels:
+    app: flask
+    component: post
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+      component: post
+  template:
+    metadata:
+      name: post
+      labels:
+        app: flask
+        component: post
+    spec:
+      containers:
+      - image: nigth/post_conv_jtoy
+        envFrom:
+        - configMapRef:
+            name: env-post-config
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        name: post

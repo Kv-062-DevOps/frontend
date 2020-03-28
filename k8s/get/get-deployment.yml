@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: get
+  labels:
+    app: flask
+    component: get
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+      component: get
+  template:
+    metadata:
+      name: get
+      labels:
+        app: flask
+        component: get
+    spec:
+      containers:
+      - image: nikitasadok/go-get-service
+        envFrom:
+        - configMapRef:
+            name: env-get-config
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        name: get

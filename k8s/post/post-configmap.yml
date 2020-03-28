@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-post-config
+data:
+  DBLINK: "http://back.default.svc.cluster.local:8083/add"
+  PORT: ":8082"
