@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: front
+  name: front-service
   labels:
     app: flask
     component: front

@@ -3,5 +3,6 @@ kind: ConfigMap
 metadata:
   name: env-post-config
 data:
-  DBLINK: "http://back.default.svc.cluster.local:8083/add"
-  PORT: ":8082"
+  BACKADDR: "back-service"
+  POSTPORT: "8082"
+  BACKPORT: "8083"

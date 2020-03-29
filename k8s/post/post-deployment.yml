@@ -19,7 +19,7 @@ spec:
         component: post
     spec:
       containers:
-      - image: nigth/post_conv_jtoy
+      - image: nigth/postconv
         envFrom:
         - configMapRef:
             name: env-post-config

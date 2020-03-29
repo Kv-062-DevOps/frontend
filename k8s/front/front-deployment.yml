@@ -19,7 +19,7 @@ spec:
         component: front
     spec:
       containers:
-      - image: dimeder13/frontend:v1
+      - image: dimeder13/frontend:latest
         envFrom:
         - configMapRef:
             name: env-front-config

@@ -19,7 +19,7 @@ spec:
         component: back
     spec:
       containers:
-      - image: dimeder13/db-service:v1
+      - image: vnikolayenko/db-service:latest-db-service
         envFrom:
         - configMapRef:
             name: env-back-config

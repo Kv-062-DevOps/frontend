@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: env-front-config
 data:
-  URL_GET: http://get.default.svc.cluster.local:8081
-  URL_POST: http://post.default.svc.cluster.local:8082
+  URL_GET: "http://get-service:8081"
+  URL_POST: "http://post-service:8082"

@@ -12,8 +12,6 @@ url_get = os.environ['URL_GET'] #'http://localhost:8081'
 url_post = os.environ['URL_POST']#http://localhost:8082'
 
 @app.route("/")
-def _():
-    return render_template('home.html')
 @app.route("/home")
 def home():
     employees=[]

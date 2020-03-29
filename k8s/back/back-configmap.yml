@@ -3,6 +3,6 @@ kind: ConfigMap
 metadata:
   name: env-back-config
 data:
-  Db_url: "http://db.default.svc.cluster.local:8000"
+  Db_url: "http://db-service:8000"
   Server_port: "8083"
   Region: "local"

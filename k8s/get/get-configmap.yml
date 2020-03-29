@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: env-get-config
 data:
-  ENDPOINT: "http://back.default.svc.cluster.local:8083/list"
-  HOST_PORT: ":8081"
+  ENDPOINT: "back-service:8083"
+  HOST_PORT: "8081"
