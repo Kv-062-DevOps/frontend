@@ -3,6 +3,9 @@ from forms import RegistrationForm
 import requests
 import json
 import os
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from prometheus_client import make_wsgi_app, Counter
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
@@ -42,6 +45,26 @@ def employee():
         flash(f'Account created for {form.first_name.data}!', 'success')
         return redirect(url_for('home'))
     return render_template('employee.html', title='employee', form=form)
+
+def start_timer():
+    request.start_time = time.time()
+
+def stop_timer(response):
+    resp_time = time.time() - request.start_time
+    sys.stderr.write("Response time: %ss\n" % resp_time)
+    return response
+
+def record_request_data(response):
+    sys.stderr.write("Request path: %s Request method: %s Response status: %s\n" %
+            (request.path, request.method, response.status_code))
+    return response
+
+def setup_metrics(app):
+    app.before_request(start_timer)
+    # The order here matters since we want stop_timer
+    # to be executed first
+    app.after_request(record_request_data)
+    app.after_request(stop_timer)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8080, debug=True)
