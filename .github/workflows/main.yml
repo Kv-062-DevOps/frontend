@@ -32,6 +32,6 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       run: |
-        docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:front-${{ env.IMAGE_TAG }} ./docker/
+        docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:front-${{ env.IMAGE_TAG }} ./front/
         docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:front-${{ env.IMAGE_TAG }}
         echo "::set-output name=image::${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}"
