@@ -28,12 +28,12 @@ def start_timer():
 
 def stop_timer(response):
     resp_time = time.time() - request.start_time
-    LATENCY.labels('dbservice', request.path).observe(resp_time)
+    LATENCY.labels('front-service', request.path).observe(resp_time)
     return response
 
 
 def record_request_data(response):
-    COUNT.labels('dbservice', request.method, request.path,
+    COUNT.labels('front-service', request.method, request.path,
                  response.status_code).inc()
     return response
 
