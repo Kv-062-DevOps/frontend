@@ -1,8 +1,8 @@
 name: Build and push image to private repository
 env:
   ECR_REGISTRY: "074368059797.dkr.ecr.eu-central-1.amazonaws.com"
-  ECR_REPOSITORY: "nikitasadok"
-  IMAGE_TAG: ${{ github.run_id }}
+  ECR_REPOSITORY: "front"
+  IMAGE_TAG: ${{ github.sha }}
 
 on:
   push:
@@ -33,5 +33,5 @@ jobs:
       id: build-image
       run: |
         docker build -t ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:front-${{ env.IMAGE_TAG }} ./front/
-        docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:front-${{ env.IMAGE_TAG }}
+        docker push ${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
         echo "::set-output name=image::${{ env.ECR_REGISTRY }}/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}"
