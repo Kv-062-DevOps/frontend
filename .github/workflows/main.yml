@@ -2,7 +2,7 @@ name: Build and push image to private repository
 env:
   ECR_REGISTRY: "074368059797.dkr.ecr.eu-central-1.amazonaws.com"
   ECR_REPOSITORY: "front"
-  IMAGE_TAG: ${{ github.sha }}
+  IMAGE_TAG: 'latest'
 
 on:
   push:
