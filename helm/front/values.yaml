@@ -3,6 +3,7 @@ replicaCount: 1
 image:
   repository: 074368059797.dkr.ecr.eu-central-1.amazonaws.com/front
   tag: 840d0cb04126efc7ecb57df84d51e828e68d91d1
+  pullPolicy: Always
 
 service:
   type: NodePort
