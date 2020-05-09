@@ -1,0 +1,6 @@
+apiVersion: v2
+description: Flask web application
+name: front
+version: 0.1.0
+type: application
+appVersion: latest

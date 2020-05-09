@@ -1,3 +1,9 @@
 env:
 - name: ENVIRONMENT
   value: staging
+ingress:
+  hosts:
+    # ingress.hosts[0].host -- Host name for routing traffic.
+    - host: staging.dimeder.pp.ua
+      # ingress.hosts[0].paths -- Array of routable paths.
+      paths: ["/"]

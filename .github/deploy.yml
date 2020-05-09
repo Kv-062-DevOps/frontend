@@ -6,15 +6,12 @@ canary:
   environment: production
   description: 'Canary'
   payload:
-    helm: helm3
     value_files: ["./config/production.yml", "./config/_common.yml"]
-    release: front
-#   release: production-front
+    release: production-front
     namespace: default
-#   namespace: example-helm
     track: canary
     values:
-      replicaCount: 1
+      replicaCount: 2
 
 # Deployment to a production environment is kicked off manually. This actually
 # runs two deployment, one is to remove the canary pods if it exists and the
@@ -25,17 +22,14 @@ production:
   environment: production
   description: 'Production'
   payload:
-    helm: helm3
     value_files: ["./config/production.yml", "./config/_common.yml"]
     # Remove the canary deployment if it exists when doing a full prod deploy.
     remove_canary: true
-    release: front
-#   release: production-front
+    release: production-front
     namespace: default
-#   namespace: example-helm
     track: stable
     values:
-      replicaCount: 2
+      replicaCount: 5
 
 # Automatic deployment to a staging environment on every push to master.
 staging:
@@ -44,12 +38,9 @@ staging:
   environment: staging
   description: 'Staging'
   payload:
-    helm: helm3
     value_files: ["./config/staging.yml", "./config/_common.yml"]
-    release: front
-#   release: staging-front
+    release: staging-front
     namespace: default
-#   namespace: example-helm
     track: stable
     values:
       replicaCount: 1
@@ -66,12 +57,9 @@ review:
   environment: pr${{ pr }}
   description: 'Review'
   payload:
-    helm: helm3
     value_files: ["./config/review.yml", "./config/_common.yml"]
-    release: front-${{ pr }}
-#   release: review-front-${{ pr }}
+    release: review-front-${{ pr }}
     namespace: default
-#   namespace: example-helm
     track: stable
     values:
       replicaCount: 1
