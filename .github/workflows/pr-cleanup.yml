@@ -16,7 +16,7 @@ jobs:
         release: 'review-front-${{ github.event.pull_request.number }}'
         version: '${{ github.sha }}'
         track: 'stable'
-        chart: './charts/front'
+        chart: './deliverybot'
         namespace: 'default'
         token: '${{ github.token }}'
       env:
