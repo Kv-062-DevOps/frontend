@@ -5,23 +5,19 @@ on:
 
 jobs:
   deployment:
-#   runs-on: ubuntu-18.04
     runs-on: 'ubuntu-latest'
     steps:
     - name: 'Deploy'
       uses: 'deliverybot/helm@v1'
       with:
-        # Task remove means to remove the helm release.
         helm: helm3
+        # Task remove means to remove the helm release.
         task: 'remove'
-        release: 'front-${{ github.event.pull_request.number }}'
-#       release: 'review-front-${{ github.event.pull_request.number }}'
-#       version: latest
+        release: 'review-front-${{ github.event.pull_request.number }}'
         version: '${{ github.sha }}'
         track: 'stable'
-        chart: './helm/front'
+        chart: './deliverybot'
         namespace: 'default'
-#       namespace: 'example-helm'
         token: '${{ github.token }}'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
