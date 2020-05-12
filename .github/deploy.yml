@@ -29,7 +29,7 @@ production:
     namespace: default
     track: stable
     values:
-      replicaCount: 5
+      replicaCount: 3
 
 # Automatic deployment to a staging environment on every push to master.
 staging:
