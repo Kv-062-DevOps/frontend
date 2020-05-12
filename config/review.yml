@@ -4,6 +4,6 @@ env:
 ingress:
   hosts:
     # ingress.hosts[0].host -- Host name for routing traffic.
-    - host: review.dimeder.pp.ua
+    - host: review.kv-062-demo.pp.ua
       # ingress.hosts[0].paths -- Array of routable paths.
       paths: ["/"]
