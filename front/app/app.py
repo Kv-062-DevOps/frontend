@@ -54,9 +54,9 @@ setup_metrics(app)
 
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 # url for get requests
-url_get = 'http://'+os.environ['URL_GET'] # localhost:8081
+url_get = os.environ['URL_GET'] # localhost:8081
 # url for post request
-url_post = 'http://'+os.environ['URL_POST'] # localhost:8082
+url_post = os.environ['URL_POST'] # localhost:8082
 
 @app.route("/")
 @app.route("/home")
