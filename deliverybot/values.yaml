@@ -13,7 +13,7 @@ image:
   # image.repository -- Docker image repository.
   repository: 074368059797.dkr.ecr.eu-central-1.amazonaws.com/front
   # image.tag -- Docker image tag.
-  tag: 840d0cb04126efc7ecb57df84d51e828e68d91d1
+  tag: latest
   pullPolicy: Always
 
 # imagePullSecrets -- Defines secrets to use for pulling docker images.
